@@ -1,0 +1,33 @@
+<div class="min-h-screen flex items-center justify-center bg-slate-50 px-4">
+    <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-10 border border-slate-100">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-extrabold text-slate-900">SrDoc</h2>
+            <p class="text-slate-500 mt-2">Acesse sua conta para gerenciar documentos</p>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+            <div>
+                <label class="block text-sm font-semibold text-slate-700">E-mail</label>
+                <input type="email" formControlName="email"
+                    class="mt-1 block w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700">Senha</label>
+                <input type="password" formControlName="password"
+                    class="mt-1 block w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+            </div>
+
+            <button type="submit" [disabled]="loginForm.invalid"
+                class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all disabled:bg-slate-300 disabled:shadow-none">
+                Entrar
+            </button>
+
+            <div class="text-center pt-4">
+                <span class="text-slate-500 text-sm">Não tem conta? </span>
+                <a routerLink="/register"
+                    class="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors">Crie uma agora</a>
+            </div>
+        </form>
+    </div>
+</div>
