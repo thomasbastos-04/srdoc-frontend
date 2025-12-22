@@ -14,6 +14,8 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+    currentYear = new Date().getFullYear();
+
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
