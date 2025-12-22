@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../../core/services/auth.service'; // Ajuste o caminho conforme sua pasta core
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,14 +23,8 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
-        next: () => {
-          // Após o 200 OK e salvar o token, vamos para o dashboard
-          this.router.navigate(['/dashboard']);
-        },
-        error: (err) => {
-          console.error(err);
-          alert('Usuário ou senha inválidos.');
-        }
+        next: () => this.router.navigate(['/dashboard']),
+        error: (err) => alert('Credenciais inválidas ou erro de conexão.')
       });
     }
   }

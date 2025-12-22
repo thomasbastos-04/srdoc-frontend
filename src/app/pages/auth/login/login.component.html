@@ -1,33 +1,35 @@
-<div class="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-    <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-10 border border-slate-100">
-        <div class="text-center mb-8">
-            <h2 class="text-3xl font-extrabold text-slate-900">SrDoc</h2>
-            <p class="text-slate-500 mt-2">Acesse sua conta para gerenciar documentos</p>
+<div class="flex min-h-screen items-center justify-center bg-slate-100 px-4">
+    <div class="w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl border border-slate-200">
+
+        <div class="mb-8 text-center">
+            <h1 class="text-4xl font-black text-blue-600 tracking-tighter">SrDoc</h1>
+            <p class="text-slate-500 text-sm mt-1">Gerenciamento de Documentos</p>
         </div>
 
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
             <div>
-                <label class="block text-sm font-semibold text-slate-700">E-mail</label>
-                <input type="email" formControlName="email"
-                    class="mt-1 block w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+                <label class="block text-xs font-bold uppercase text-slate-500 mb-1 ml-1">E-mail</label>
+                <input type="email" formControlName="email" placeholder="seu@email.com"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm transition-all focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-500/10" />
             </div>
 
             <div>
-                <label class="block text-sm font-semibold text-slate-700">Senha</label>
-                <input type="password" formControlName="password"
-                    class="mt-1 block w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+                <label class="block text-xs font-bold uppercase text-slate-500 mb-1 ml-1">Senha</label>
+                <input type="password" formControlName="password" placeholder="••••••••"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm transition-all focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-500/10" />
             </div>
 
             <button type="submit" [disabled]="loginForm.invalid"
-                class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all disabled:bg-slate-300 disabled:shadow-none">
-                Entrar
+                class="w-full rounded-xl bg-blue-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-700 active:scale-[0.98] disabled:bg-slate-300 disabled:shadow-none">
+                Entrar na Plataforma
             </button>
 
-            <div class="text-center pt-4">
-                <span class="text-slate-500 text-sm">Não tem conta? </span>
-                <a routerLink="/register"
-                    class="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors">Crie uma agora</a>
+            <div class="pt-4 text-center">
+                <a routerLink="/register" class="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors">
+                    Criar uma nova conta
+                </a>
             </div>
         </form>
+
     </div>
 </div>
