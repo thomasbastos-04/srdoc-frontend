@@ -1,14 +1,13 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';
-import { Observable } from 'rxjs';
-
-
+import { tap, Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
-  private readonly API_URL = 'http://20.226.170.108/api/Auth';
+
+  private readonly API_URL = `${environment.apiBaseUrl}/Auth`;
 
   token = signal<string | null>(localStorage.getItem('token'));
 
@@ -20,9 +19,11 @@ export class AuthService {
       })
     );
   }
+
   register(userData: any): Observable<any> {
     return this.http.post(`${this.API_URL}/register`, userData);
   }
+
   logout() {
     localStorage.removeItem('token');
     this.token.set(null);

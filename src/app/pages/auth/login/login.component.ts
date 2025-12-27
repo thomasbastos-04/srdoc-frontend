@@ -25,7 +25,7 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
-        next: () => this.router.navigate(['/dashboard']),
+        next: () => this.router.navigate(['app/dashboard']),
         error: (err) => alert('Credenciais inválidas ou erro de conexão.')
       });
     }
